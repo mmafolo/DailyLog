@@ -2,11 +2,35 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>DailyLog</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+  	<welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+
+<!-- Home page servlet -->
+	<servlet>
+		<servlet-name>HomePage</servlet-name>
+		<servlet-class>com.mafolo.dailylog.mainApp.DailyLog</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HomePage</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+	
+<!-- Log in and register servlet -->
+	<servlet>
+		<servlet-name>LognRegister</servlet-name>
+		<servlet-class>com.mafolo.dailylog.mainApp.LogReg</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LognRegister</servlet-name>
+		<url-pattern>/logregister</url-pattern>
+	</servlet-mapping>
+<!-- Post servlet -->
+	<servlet>
+		<servlet-name>Post</servlet-name>
+		<servlet-class>com.mafolo.dailylog.mainApp.PostMsg</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Post</servlet-name>
+		<url-pattern>/postmessage</url-pattern>
+	</servlet-mapping>
 </web-app>
