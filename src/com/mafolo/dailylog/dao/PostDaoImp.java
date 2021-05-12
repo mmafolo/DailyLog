@@ -6,14 +6,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.mafolo.dailylog.model.Post;
+import com.mmafolo.dailylog.conprovider.MyConnectionProvider;
 
 public class PostDaoImp implements PostDao {
 	
-	static {
+	/*static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		}catch(ClassNotFoundException ex) {
-			
+			ex.printStackTrace();
 		}
 	}
 	private Connection getConnection() throws SQLException{
@@ -25,13 +26,15 @@ public class PostDaoImp implements PostDao {
 		try {
 			conn.close();
 		}catch(SQLException ex) {
-			
+			ex.printStackTrace();
 		}
-	}
+	}*/
+	MyConnectionProvider connectionProvider = new MyConnectionProvider();
+
 	@Override
 	public void inserPost(Post p) {
 		//boolean userCreated = false;
-		String sql = "insert into post(username,postdate, posttopic,postbody)" +
+		String sql = "insert into post(username,post_date, post_topic,post_body)" +
 				"values('" + p.getUsername() + "','" +
 				p.getPostdate() + "','" +		
 				p.getPosttopic() + "','" +
@@ -39,7 +42,7 @@ public class PostDaoImp implements PostDao {
 		System.out.println(sql);
 		Connection conn = null;
 		try {
-			conn = getConnection();
+			conn = connectionProvider.getConnection();
 			Statement statement = conn.createStatement();
 			statement.executeUpdate(sql);
 			System.out.println(sql);
@@ -47,7 +50,7 @@ public class PostDaoImp implements PostDao {
 		}catch (SQLException e1) {
 			e1.printStackTrace();
 		}finally {
-			closeConnection(conn);
+			connectionProvider.closeConnection(conn);
 		}
 	}
 

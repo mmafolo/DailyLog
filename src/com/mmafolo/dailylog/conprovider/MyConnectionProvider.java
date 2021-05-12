@@ -9,19 +9,21 @@ public class MyConnectionProvider {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		}catch(ClassNotFoundException ex) {
-			
+			ex.printStackTrace();
 		}
 	}
-	private Connection getConnection() throws SQLException{
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/diarylog","root","dineo");
+	//Member should be private??
+	public Connection getConnection() throws SQLException{
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/diarylog","root","mandla");
 	}
-	private void closeConnection(Connection conn) {
+	//Member should be private??
+	public void closeConnection(Connection conn) {
 		if(conn == null)
 			return;
 		try {
 			conn.close();
 		}catch(SQLException ex) {
-			
+			ex.printStackTrace();
 		}
 	}
 }

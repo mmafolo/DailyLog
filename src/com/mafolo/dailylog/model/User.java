@@ -5,12 +5,8 @@ import java.util.List;
 
 public class User {
 
-	private Long userId;
 	private String name, userName, userSurname, userPass;
-	
-	public void setUserId(Long i) {
-		this.userId = i;
-	}
+
 	public void setName(String n) {
 		this.name = n;
 	}
@@ -22,9 +18,6 @@ public class User {
 	}
 	public void setuserPass(String up) {
 		this.userPass = up;
-	}
-	public Long getUserId() {
-		return userId;
 	}
 	public String getName() {
 		return name;
@@ -46,7 +39,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", userName=" + userName + ", userSurname=" + userSurname
+		return "User ["+"name=" + name + ", userName=" + userName + ", userSurname=" + userSurname
 				+ "]";
 	}
 	

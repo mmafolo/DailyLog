@@ -15,11 +15,11 @@ public class UserDaoImp implements UserDao {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		}catch(ClassNotFoundException ex) {
-			
+			ex.printStackTrace();
 		}
 	}
 	private Connection getConnection() throws SQLException{
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/diarylog","root","dineo");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/diarylog","root","mandla");
 	}
 	private void closeConnection(Connection conn) {
 		if(conn == null)
@@ -27,7 +27,7 @@ public class UserDaoImp implements UserDao {
 		try {
 			conn.close();
 		}catch(SQLException ex) {
-			
+			ex.printStackTrace();
 		}
 	}
 	@Override
@@ -69,19 +69,19 @@ public class UserDaoImp implements UserDao {
 	}
 	public boolean insertUser(User u) {
 		boolean userCreated = false;
-	String sql = "insert into user(username,name,surname,userpass)" +
+	String sql = "insert into user(username,nameuser,usersurname,userpass)" +
 		"values('" + 
 			 u.getUserName() + "','" +
 			 u.getName() + "','" +		
 			 u.getUserSurname() + "','" +
 			 u.getUserPass() + "')";
-	System.out.println(sql);
+	System.out.println(sql + "Created statement before connecting to DB");
 	Connection conn = null;
 	try {
 		conn = getConnection();
 		Statement statement = conn.createStatement();
 		statement.executeUpdate(sql);
-		System.out.println(sql);
+		System.out.println(sql + "After insertion");
 		userCreated = true;
 	}catch (SQLException e1) {
 		

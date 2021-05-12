@@ -1,13 +1,11 @@
 package com.mafolo.dailylog.mainApp;
 
+import com.mafolo.dailylog.model.User;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.mafolo.dailylog.dao.UserDao;
-import com.mafolo.dailylog.dao.UserDaoImp;
-import com.mafolo.dailylog.model.User;
 
 public class DailyLog extends HttpServlet{
 	
