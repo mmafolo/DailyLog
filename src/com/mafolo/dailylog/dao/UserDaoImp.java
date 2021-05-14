@@ -8,10 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.mafolo.dailylog.model.User;
+import com.mmafolo.dailylog.conprovider.MyConnectionProvider;
 
 public class UserDaoImp implements UserDao {
 
-	static {
+	/*static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		}catch(ClassNotFoundException ex) {
@@ -29,7 +30,8 @@ public class UserDaoImp implements UserDao {
 		}catch(SQLException ex) {
 			ex.printStackTrace();
 		}
-	}
+	}*/
+	MyConnectionProvider connectionProvider = new MyConnectionProvider();
 	@Override
 	public User getUser(String uname, String upass) {
 		System.out.println(uname + " In the imp file");
@@ -41,7 +43,7 @@ public class UserDaoImp implements UserDao {
 		Connection conn = null;
 		try {
 			
-			conn = getConnection();
+			conn = connectionProvider.getConnection();
 			System.out.println(conn.toString());
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet result = statement.executeQuery();
@@ -52,8 +54,8 @@ public class UserDaoImp implements UserDao {
 					if((user.getUserName().equals(uname)) && user.getUserPass().equals(upass) ){				
 						//user.setUserName(result.getString("username"));
 						//user.setuserPass(result.getString("userpass"));
-						user.setName(result.getString("name"));
-						user.setUserSurname(result.getString("surname"));
+						user.setName(result.getString("nameuser"));
+						user.setUserSurname(result.getString("usersurname"));
 						System.out.println("Username: "+ user.getUserName());
 					}
 					
@@ -63,7 +65,7 @@ public class UserDaoImp implements UserDao {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}finally {
-			closeConnection(conn);
+			connectionProvider.closeConnection(conn);
 		}
 		return user;
 	}
@@ -78,7 +80,7 @@ public class UserDaoImp implements UserDao {
 	System.out.println(sql + "Created statement before connecting to DB");
 	Connection conn = null;
 	try {
-		conn = getConnection();
+		conn = connectionProvider.getConnection();
 		Statement statement = conn.createStatement();
 		statement.executeUpdate(sql);
 		System.out.println(sql + "After insertion");
@@ -87,7 +89,7 @@ public class UserDaoImp implements UserDao {
 		
 		e1.printStackTrace();
 	}finally {
-		closeConnection(conn);
+		connectionProvider.closeConnection(conn);
 	}
 		return userCreated;
 	}

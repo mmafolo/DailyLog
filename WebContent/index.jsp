@@ -1,5 +1,5 @@
 <title>Home | Daily Logger</title>
 <%@ include file="header.jsp" %>
-	/%${message}%/
+	${message}
 	</body>
 </html>
