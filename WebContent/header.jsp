@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" session="true"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,8 +23,21 @@
 						<li><a href="index.jsp">Home</a></li>
 						<li><a href="profile.jsp">Profile</a></li>
 						<div class="float-right nav nav-pills">
-							<li><a href="login.jsp">Log in</a></li>
-							<li><a href="registration.jsp">Get Started</a></li>	
+						<!-- If session is false -->
+						<%
+						    String name = (String) request.getAttribute("User");
+						    if(session.getAttribute("User") == null)
+						     {
+						%>
+						        <li><a href="logout.jsp">Log in</a></li>
+						<%    }
+						    else {
+						%>
+						        <li><a href="login.jsp">Log in</a></li>
+                                <li><a href="registration.jsp">Get Started</a></li>
+                         <%
+                                }
+                         %>
 					</ul>
 			</nav>
 		</div>

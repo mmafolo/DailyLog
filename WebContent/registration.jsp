@@ -1,7 +1,7 @@
 <%@ include file="header.jsp" %>
 	<title>Register</title>
 		<div class= "container center">	
-			<form action="logregister" method="post" class="form-group">
+			<form action="<%=request.getContextPath()%>/register>" method="post" class="form-group">
 				<table>
 					<tr>
 						<td>${message}</td>

@@ -12,25 +12,6 @@ import com.mmafolo.dailylog.conprovider.MyConnectionProvider;
 
 public class UserDaoImp implements UserDao {
 
-	/*static {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		}catch(ClassNotFoundException ex) {
-			ex.printStackTrace();
-		}
-	}
-	private Connection getConnection() throws SQLException{
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/diarylog","root","mandla");
-	}
-	private void closeConnection(Connection conn) {
-		if(conn == null)
-			return;
-		try {
-			conn.close();
-		}catch(SQLException ex) {
-			ex.printStackTrace();
-		}
-	}*/
 	MyConnectionProvider connectionProvider = new MyConnectionProvider();
 	@Override
 	public User getUser(String uname, String upass) {
@@ -47,6 +28,7 @@ public class UserDaoImp implements UserDao {
 			System.out.println(conn.toString());
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet result = statement.executeQuery();
+
 			while(result.next()) {
 				user.setUserName(result.getString("username"));
 				user.setuserPass(result.getString("userpass"));

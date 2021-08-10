@@ -13,7 +13,7 @@ public class DailyLog extends HttpServlet{
 		HttpSession session = req.getSession();
 		
 		System.out.println("this is session.toString \n"+ session.toString() + "\n");
-		User user = (User) session.getAttribute("user");		
+		User user = (User) session.getAttribute("user");
 		System.out.println("\n\nMe trying to get session values \n"+user.getName() + "\n\n");
 		
 		

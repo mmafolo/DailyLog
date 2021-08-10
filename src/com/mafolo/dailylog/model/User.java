@@ -5,7 +5,8 @@ import java.util.List;
 
 public class User {
 
-	private String name, userName, userSurname, userPass;
+	private String name, userName, userSurname, userPass,
+			userEmail, userBio;
 
 	public void setName(String n) {
 		this.name = n;
@@ -19,6 +20,9 @@ public class User {
 	public void setuserPass(String up) {
 		this.userPass = up;
 	}
+	public void setUserEmail(String email){
+		this.userEmail = email;
+	}
 	public String getName() {
 		return name;
 	}
@@ -30,6 +34,12 @@ public class User {
 	}
 	public String getUserPass() {
 		return userPass;
+	}
+	public String getUserEmail(){
+		return userEmail;
+	}
+	public String getUserBio(){
+		return userBio;
 	}
 	public List<User> addUsers(User user){
 		List<User> list = new ArrayList<>(); 

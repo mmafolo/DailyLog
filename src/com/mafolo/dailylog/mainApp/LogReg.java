@@ -12,10 +12,11 @@ import com.mafolo.dailylog.dao.UserDao;
 import com.mafolo.dailylog.dao.UserDaoImp;
 import com.mafolo.dailylog.model.User;
 
+
 public class LogReg extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException  {
 		
-		UserDao userDao = new UserDaoImp();
+		/*UserDao userDao = new UserDaoImp();
 		User user = new User();
 		String username, pass, submit;
 		username = req.getParameter("username");
@@ -48,7 +49,7 @@ public class LogReg extends HttpServlet{
 					req.setAttribute("message",user.getName());
 					req.getRequestDispatcher("index.jsp").forward(req, res);
 					HttpSession session = req.getSession();
-					session.setAttribute("user", user);
+					//session.setAttribute("user", user);
 				}
 				
 			}else {
@@ -56,7 +57,7 @@ public class LogReg extends HttpServlet{
 				req.getRequestDispatcher("registration.jsp").forward(req, res);
 			}
 			
-		}
+		}*/
 		
 	}
 }

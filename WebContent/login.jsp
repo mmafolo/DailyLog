@@ -1,7 +1,7 @@
 <%@ include file="header.jsp" %>
 <title>Log in</title>
 		<div class= "container center">
-			<form action="logregister" method="post">
+			<form action="<%=request.getContextPath()%>/login" method="post">
 				<table>
 					<tr>
 						<td>${message}</td>

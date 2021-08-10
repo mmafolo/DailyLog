@@ -7,6 +7,17 @@ public class Post {
 	private Date  postdate;
 	private String posttopic;
 	private String postbody;
+
+	public Post(String username, Date  postdate, String posttopic, String postbody) {
+		this.username = username;
+		this.postdate = postdate;
+		this.posttopic = posttopic;
+		this.postbody = postbody;
+	}
+	public Post(){
+
+	}
+
 	public String getUsername() {
 		return username;
 	}

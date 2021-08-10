@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class = "container-fluid">
-		<form method ="post" action = "postmessage">
+		<form method ="post" action ="<%=request.getContextPath()%>/createPost">
 			<div class = "form-group">
 				<input type="text" name = "msgtopc" placeholder = "Topic"> 
 			</div>
@@ -21,8 +21,8 @@
 			<div class = "form-group">
 				<textarea id="msgbody" class = "form-control" rows="5" cols="" name = "msgbody"></textarea>
 			</div>
-			<input class = "btn btn-default" name = "postMsg" type = "submit" value = "Post">
-			<input class = "btn btn-default" name = "postCan" type = "submit" value = "Cancel">
+			<input class = "btn btn-default" name = "submit" type = "submit" value = "Post">
+			<input class = "btn btn-default" name = "submit" type = "submit" value = "Cancel">
 		</form>
 		
 	</div>
